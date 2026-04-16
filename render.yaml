@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: reflexion-web
+    runtime: java
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /login
+    buildCommand: "mvn clean package -DskipTests"
+    startCommand: "java -jar target/reflexion-1.0.0.jar"
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        fromDatabase:
+          name: reflexion-db
+          property: connectionString
+      - key: SPRING_DATASOURCE_USERNAME
+        fromDatabase:
+          name: reflexion-db
+          property: user
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromDatabase:
+          name: reflexion-db
+          property: password
+      - key: SPRING_DATASOURCE_DRIVER_CLASS_NAME
+        value: org.postgresql.Driver
+      - key: SPRING_H2_CONSOLE_ENABLED
+        value: "false"
+
+databases:
+  - name: reflexion-db
+    databaseName: reflexion
+    user: reflexion_user
+    plan: free
