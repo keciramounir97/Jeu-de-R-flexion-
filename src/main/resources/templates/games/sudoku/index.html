@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflexion - Sudoku</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+<main class="container chess-shell">
+    <section class="chess-hero">
+        <div>
+            <p class="eyebrow">Reflexion / Sudoku Mind</p>
+            <h1 class="chess-title">Sudoku Elegant Grid</h1>
+            <p class="chess-subtitle" th:text="'Cases vides: ' + ${holes}"></p>
+        </div>
+        <div class="hero-actions">
+            <a class="ghost-btn" th:href="@{/lobby}">Retour Lobby</a>
+            <span class="difficulty-pill" th:text="'Niveau: ' + ${level}"></span>
+        </div>
+    </section>
+    <section class="chess-layout">
+        <article class="chess-board-card">
+            <div class="board-topbar">
+                <strong id="sudokuStatus">Remplis les cases vides.</strong>
+                <button id="checkSudoku" type="button">Verifier</button>
+            </div>
+            <div class="sudoku-grid" id="sudokuGrid"></div>
+        </article>
+        <aside class="chess-panel">
+            <div class="panel-block">
+                <h2>Sauvegarde</h2>
+                <form method="post" th:action="@{/games/sudoku/save}">
+                    <input type="hidden" name="level" th:value="${level}">
+                    <input type="hidden" id="sudokuStateData" name="stateData" value="">
+                    <label>Score simulé</label>
+                    <input id="sudokuScoreInput" type="number" name="score" value="0">
+                    <button type="submit">Sauvegarder</button>
+                </form>
+            </div>
+            <div class="panel-block">
+                <h2>Difficulté</h2>
+                <p class="level-links">
+                    <a th:href="@{/games/sudoku(level='EASY')}">Facile</a>
+                    <a th:href="@{/games/sudoku(level='MEDIUM')}">Moyen</a>
+                    <a th:href="@{/games/sudoku(level='HARD')}">Difficile</a>
+                </p>
+            </div>
+        </aside>
+    </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.global.min.js"></script>
+<script th:src="@{/js/ui-motion.js}"></script>
+<script th:src="@{/js/sudoku-pro.js}"></script>
+</body>
+</html>

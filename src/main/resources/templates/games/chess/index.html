@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflexion - Echecs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+<main class="container chess-shell">
+    <section class="chess-hero">
+        <div>
+            <p class="eyebrow">Reflexion / Chess Arena</p>
+            <h1 class="chess-title">Echecs Pro Mode</h1>
+            <p class="chess-subtitle" th:text="${tip}"></p>
+        </div>
+        <div class="hero-actions">
+            <a class="ghost-btn" th:href="@{/lobby}">Retour Lobby</a>
+            <span class="difficulty-pill" th:text="'Niveau: ' + ${level}"></span>
+        </div>
+    </section>
+
+    <section class="chess-layout">
+        <article class="chess-board-card">
+            <div class="board-topbar">
+                <div>
+                    <strong id="turnLabel">Tour: Blanc</strong>
+                    <p id="statusLabel">Selectionne une piece pour commencer.</p>
+                </div>
+                <div class="board-controls">
+                    <button type="button" id="newGameBtn">Nouvelle partie</button>
+                    <button type="button" id="resetBtn">Reset</button>
+                </div>
+            </div>
+            <div class="chess-board" id="chessBoard"></div>
+        </article>
+
+        <aside class="chess-panel">
+            <div class="panel-block">
+                <h2>Chrono</h2>
+                <p id="timer" class="big-value">00:00</p>
+            </div>
+            <div class="panel-block">
+                <h2>Captures</h2>
+                <p>Blanc: <span id="capturedByWhite">Aucune</span></p>
+                <p>Noir: <span id="capturedByBlack">Aucune</span></p>
+            </div>
+            <div class="panel-block">
+                <h2>Historique</h2>
+                <ol id="moveList" class="move-list"></ol>
+            </div>
+            <div class="panel-block">
+                <h2>Sauvegarde score</h2>
+                <form method="post" th:action="@{/games/chess/save}">
+                    <input type="hidden" name="level" th:value="${level}">
+                    <input type="hidden" id="chessStateData" name="stateData" value="">
+                    <label for="scoreInput">Score simulé</label>
+                    <input id="scoreInput" type="number" name="score" value="0">
+                    <button type="submit">Sauvegarder</button>
+                </form>
+            </div>
+            <div class="panel-block">
+                <h2>Difficulté</h2>
+                <p class="level-links">
+                    <a th:href="@{/games/chess(level='EASY')}">Facile</a>
+                    <a th:href="@{/games/chess(level='MEDIUM')}">Moyen</a>
+                    <a th:href="@{/games/chess(level='HARD')}">Difficile</a>
+                </p>
+            </div>
+        </aside>
+    </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.global.min.js"></script>
+<script th:src="@{/js/ui-motion.js}"></script>
+<script th:src="@{/js/chess-pro.js}"></script>
+</body>
+</html>

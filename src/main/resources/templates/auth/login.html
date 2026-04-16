@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflexion - Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+<main class="container narrow auth-shell">
+    <p class="eyebrow">Reflexion Universe</p>
+    <h1 class="auth-title">Connexion joueur</h1>
+    <p class="auth-subtitle">Entre dans une ambiance fun et colorée.</p>
+    <p class="error" th:if="${error}" th:text="${error}"></p>
+    <p class="success" th:if="${success}" th:text="${success}"></p>
+    <form method="post" th:action="@{/login}">
+        <label>Username</label>
+        <input name="username" required>
+        <label>Mot de passe</label>
+        <input name="password" type="password" required>
+        <button type="submit">Se connecter</button>
+    </form>
+    <a class="auth-link" th:href="@{/register}">Créer un compte</a>
+    <section class="fun-resources">
+        <h2>Fun resources</h2>
+        <a href="https://www.chess.com/lessons" target="_blank" rel="noopener noreferrer">Echecs training</a>
+        <a href="https://sudoku.com" target="_blank" rel="noopener noreferrer">Sudoku daily</a>
+        <a href="https://play2048.co/" target="_blank" rel="noopener noreferrer">2048 challenge</a>
+    </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.global.min.js"></script>
+<script th:src="@{/js/ui-motion.js}"></script>
+</body>
+</html>
