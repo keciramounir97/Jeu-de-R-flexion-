@@ -1,4 +1,4 @@
-Voici une proposition de fichier README.md optimisé pour votre dépôt GitHub. Il respecte vos contraintes techniques tout en présentant le projet de manière professionnelle pour votre évaluation.
+
 ------------------------------
 ## Projet Architecture J2EE : Jeu de Réflexion
 Ce projet consiste en la conception et le développement d'une application web de jeu de réflexion basée sur une architecture J2EE.
@@ -27,6 +27,4 @@ Note : Conformément aux spécifications, les frameworks Angular et Bootstrap ne
    4. Lancez l'application via le serveur Tomcat intégré ou la classe Main de Spring Boot.
    5. Accédez à l'application sur http://localhost:8080.
 
-------------------------------
-Souhaitez-vous que je développe une section spécifique sur la structure des packages (Controller, Service, Model) ou que je vous propose une idée de jeu de réflexion original qui respecte les interdits ?
 
