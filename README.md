@@ -1,6 +1,6 @@
 
 ------------------------------
-## Projet Architecture J2EE : Jeu de Réflexion
+## Projet Architecture J2EE : Jeu de Réflexion  durée de la séance 3h nombre de séances : 2
 Ce projet consiste en la conception et le développement d'une application web de jeu de réflexion basée sur une architecture J2EE.
 ## 📝 Description du projet
 L'objectif est de proposer une expérience de jeu fluide et interactive, où l'utilisateur peut s'authentifier et progresser à travers différents niveaux de difficulté. Le choix du jeu s'est porté sur un concept de réflexion original, excluant les jeux classiques de type Échecs, Dames, Sudoku ou 2048.
